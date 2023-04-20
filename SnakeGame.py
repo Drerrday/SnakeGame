@@ -15,6 +15,9 @@ WHITE = (255, 255, 255)
 GREEN = (0, 255, 0)
 RED = (255, 0, 0)
 BLACK = (0, 0, 0)
+GREY = (70, 76, 81)
+BLUE = (33, 88, 136)
+GOLD = (226, 168, 9)
 
 # Snake and food settings
 snake_pos = [[100, 50], [90, 50], [80, 50]]
@@ -101,6 +104,7 @@ while True:
     if snake_pos[0] == food_pos:
         snake_pos.append(snake_pos[-1])
         food_spawn = False
+        snake_speed += 1
         score += 10
     else:
         food_spawn = True
@@ -117,10 +121,10 @@ while True:
             game_over(score)
 
     # Draw the snake and food
-    screen.fill(WHITE)
+    screen.fill(BLUE)
     for pos in snake_pos:
         pygame.draw.rect(screen, GREEN, pygame.Rect(pos[0], pos[1], 10, 10))
-    pygame.draw.rect(screen, RED, pygame.Rect(food_pos[0], food_pos[1], 10, 10))
+    pygame.draw.rect(screen, GOLD, pygame.Rect(food_pos[0], food_pos[1], 10, 10))
 
     display_score(screen, score, highscore)
 
